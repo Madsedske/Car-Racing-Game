@@ -17,7 +17,7 @@ namespace Car_Racing_Game
         Random randomGenerator = new Random();
         int coinsCollected;
         bool moveRight, moveLeft;
-        int carSpeed = 12;
+        int carSpeed = 12; 
 
         public Form1()
         {
