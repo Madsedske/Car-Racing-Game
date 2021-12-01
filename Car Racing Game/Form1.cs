@@ -15,6 +15,7 @@ namespace Car_Racing_Game
     {
         int gamespeed = 3;
         Random randomGenerator = new Random();
+        int coinValue;
         int coinsCollected;
         bool moveRight, moveLeft;
         int carSpeed = 12; 
@@ -24,6 +25,7 @@ namespace Car_Racing_Game
             InitializeComponent();
             LabelGameOver.Visible = false;
             labelSamledeCoins.Visible = false;
+            GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -113,28 +115,37 @@ namespace Car_Racing_Game
                 LabelGameOver.Visible = true;
                 labelBegin.Visible = true;
                 labelSamledeCoins.Visible = true;
-                labelSamledeCoins.Text = "Du scorede " + coinsCollected + " Mønter";
+                labelSamledeCoins.Text = "Du scorede " + coinsCollected + " mønter";
             }
         }
         void coinsCollect()
         {
+            if (gamespeed == 3)            
+                coinValue = 1;
+            
+            if (gamespeed == 6)
+                coinValue = 2;
+            
+            if (gamespeed == 9)
+                coinValue = 3;
+
             if (pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxCoin1.Bounds))
             {
-                coinsCollected++;
+                coinsCollected = coinsCollected + coinValue;
                 label1.Text = "Coins = " + coinsCollected;
                 int xLocationCoins = randomGenerator.Next(20, 335);
                 pictureBoxCoin1.Location = new Point(xLocationCoins, -50);
             }
             if (pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxCoin2.Bounds))
             {
-                coinsCollected++;
+                coinsCollected = coinsCollected + coinValue;
                 label1.Text = "Coins = " + coinsCollected;
                 int xLocationCoins = randomGenerator.Next(20, 335);
                 pictureBoxCoin2.Location = new Point(xLocationCoins, -50);
             }
             if (pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxCoin3.Bounds))
             {
-                coinsCollected++;
+                coinsCollected = coinsCollected + coinValue;
                 label1.Text = "Coins = " + coinsCollected;
                 int xLocationCoins = randomGenerator.Next(20, 335);
                 pictureBoxCoin3.Location = new Point(xLocationCoins, -50);
@@ -202,14 +213,18 @@ namespace Car_Racing_Game
 
             if (e.KeyCode == Keys.Up)
             {
-                if (gamespeed < 14)                
-                    gamespeed++;                
+                if (gamespeed < 10)                
+                    gamespeed = gamespeed + 3;         
+            GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+
             }
 
             if (e.KeyCode == Keys.Down)
             {
                 if (gamespeed > 3)                
-                    gamespeed--;                
+                    gamespeed = gamespeed - 3;
+            GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+
             }
         }
 
