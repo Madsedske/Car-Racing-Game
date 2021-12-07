@@ -11,7 +11,7 @@ using System.Numerics;
 
 namespace Car_Racing_Game
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
         int gamespeed = 3;
         Random randomGenerator = new Random();
