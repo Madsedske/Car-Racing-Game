@@ -84,6 +84,7 @@
       <HintPath>..\packages\SFML.Window.2.5.0\lib\netstandard2.0\SFML.Window.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -104,11 +105,17 @@
     <Compile Include="Entity.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Racinggame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Racinggame.Designer.cs">
+      <DependentUpon>Racinggame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leaderboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leaderboard.Designer.cs">
+      <DependentUpon>Leaderboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -123,8 +130,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TilføjScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TilføjScore.Designer.cs">
+      <DependentUpon>TilføjScore.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Racinggame.resx">
+      <DependentUpon>Racinggame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leaderboard.resx">
+      <DependentUpon>Leaderboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,6 +151,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TilføjScore.resx">
+      <DependentUpon>TilføjScore.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

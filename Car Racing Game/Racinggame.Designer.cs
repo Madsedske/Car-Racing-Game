@@ -58,6 +58,7 @@ namespace Car_Racing_Game
             this.label3 = new System.Windows.Forms.Label();
             this.GameSpeedLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.CheckScoreTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSideLinje1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSidelinje2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMidtStribe4)).BeginInit();
@@ -298,7 +299,6 @@ namespace Car_Racing_Game
             // 
             // MoveTimer
             // 
-            this.MoveTimer.Enabled = true;
             this.MoveTimer.Interval = 20;
             this.MoveTimer.Tick += new System.EventHandler(this.MoveTimer_Tick);
             // 
@@ -346,6 +346,10 @@ namespace Car_Racing_Game
             this.label7.Text = "Gamespeed 3: \r\nEasy. Coin Value is 1.\r\n\r\nGamespeed 6: \r\nMedium. Coin Value is 2.\r" +
     "\n\r\nGamespeed 9: \r\nHard. Coin Value is 3.\r\n";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // CheckScoreTimer
+            // 
+            this.CheckScoreTimer.Tick += new System.EventHandler(this.CheckScoreTimer_Tick);
             // 
             // Form1
             // 
@@ -435,6 +439,7 @@ namespace Car_Racing_Game
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label GameSpeedLabel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer CheckScoreTimer;
     }
 }
 
