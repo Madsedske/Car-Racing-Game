@@ -134,6 +134,7 @@ namespace Car_Racing_Game
             // Detects collision with the other cars. Then controls the gameover elements.
             if (pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxBil1.Bounds) || pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxBil2.Bounds) || pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxBil3.Bounds) || pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxBil4.Bounds))
             {
+                TilføjScore.CloseScore = false;
                 CheckScoreTimer.Enabled = true;
                 MoveTimer.Enabled = false;
                 timer1.Enabled = false;
@@ -209,7 +210,8 @@ namespace Car_Racing_Game
         {
             // Controls to begin a game.
             if (e.KeyCode == Keys.Space)
-            {                    CheckScoreTimer.Enabled = false;
+            {                    
+                CheckScoreTimer.Enabled = false;
                 MoveTimer.Enabled = true;
                 coinsCollected = 0;
                 label1.Text = "Coins = " + coinsCollected;
@@ -275,7 +277,7 @@ namespace Car_Racing_Game
                 moveRight = false;              
         }
 
-        private void CheckScoreTimer_Tick(object sender, EventArgs e)
+        public void CheckScoreTimer_Tick(object sender, EventArgs e)
         {
             switch (TilføjScore.CloseScore)
             {

@@ -27,7 +27,7 @@ namespace Car_Racing_Game
 
         public void button1_Click(object sender, EventArgs e)
         {
-            closeScore = true;
+            textBoxNavn.Text = "";
             int var = Form1.CoinsCollected;
             DateTime date = DateTime.Now;
             string dateFormat = date.ToString("yyyy-MM-dd");
@@ -46,12 +46,12 @@ namespace Car_Racing_Game
                     insertCommand.ExecuteNonQuery();
                     conn.Close();
                 }
-            }                    
+            }
+            closeScore = true;
         }
 
         private void TilføjScore_Load(object sender, EventArgs e)
         {
-             closeScore = false;
         }
     }
 }
