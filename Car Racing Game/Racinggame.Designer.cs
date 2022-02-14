@@ -52,7 +52,6 @@ namespace Car_Racing_Game
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxCoin2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxCoin3 = new System.Windows.Forms.PictureBox();
-            this.labelSamledeCoins = new System.Windows.Forms.Label();
             this.MoveTimer = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -301,16 +300,6 @@ namespace Car_Racing_Game
             this.pictureBoxCoin3.TabIndex = 19;
             this.pictureBoxCoin3.TabStop = false;
             // 
-            // labelSamledeCoins
-            // 
-            this.labelSamledeCoins.BackColor = System.Drawing.Color.Transparent;
-            this.labelSamledeCoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSamledeCoins.Location = new System.Drawing.Point(381, 56);
-            this.labelSamledeCoins.Name = "labelSamledeCoins";
-            this.labelSamledeCoins.Size = new System.Drawing.Size(173, 61);
-            this.labelSamledeCoins.TabIndex = 20;
-            this.labelSamledeCoins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MoveTimer
             // 
             this.MoveTimer.Interval = 20;
@@ -320,7 +309,7 @@ namespace Car_Racing_Game
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(381, 414);
+            this.label2.Location = new System.Drawing.Point(379, 400);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 23);
             this.label2.TabIndex = 21;
@@ -331,19 +320,18 @@ namespace Car_Racing_Game
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(381, 437);
+            this.label3.Location = new System.Drawing.Point(382, 425);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 82);
+            this.label3.Size = new System.Drawing.Size(173, 94);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Up arrow: Faster\r\nDown arrow: Slower\r\nRight arrow: Steer right\r\nLeft arrow: Steer" +
-    " left\r\nEnter: Leaderboard";
+            this.label3.Text = "Right arrow: Steer right\r\n\r\nLeft arrow: Steer left\r\n\r\nEnter: Leaderboard";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // GameSpeedLabel
             // 
             this.GameSpeedLabel.BackColor = System.Drawing.Color.Transparent;
             this.GameSpeedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GameSpeedLabel.Location = new System.Drawing.Point(383, 137);
+            this.GameSpeedLabel.Location = new System.Drawing.Point(381, 37);
             this.GameSpeedLabel.Name = "GameSpeedLabel";
             this.GameSpeedLabel.Size = new System.Drawing.Size(173, 51);
             this.GameSpeedLabel.TabIndex = 26;
@@ -353,12 +341,12 @@ namespace Car_Racing_Game
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(383, 188);
+            this.label7.Location = new System.Drawing.Point(382, 88);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 100);
+            this.label7.Size = new System.Drawing.Size(173, 136);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Gamespeed 3: \r\nEasy. Coin Value is 1.\r\nGamespeed 6: \r\nMedium. Coin Value is 2.\r\nG" +
-    "amespeed 9: \r\nHard. Coin Value is 3.\r\n";
+            this.label7.Text = "Gamespeed 3: \r\nEasy. Coin Value is 1.\r\n\r\nGamespeed 6: \r\nMedium. Coin Value is 2.\r" +
+    "\n\r\nGamespeed 9: \r\nHard. Coin Value is 3.";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // CheckScoreTimer
@@ -412,10 +400,10 @@ namespace Car_Racing_Game
             // labelPower
             // 
             this.labelPower.AutoSize = true;
-            this.labelPower.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPower.Location = new System.Drawing.Point(204, 532);
+            this.labelPower.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPower.Location = new System.Drawing.Point(26, 528);
             this.labelPower.Name = "labelPower";
-            this.labelPower.Size = new System.Drawing.Size(0, 20);
+            this.labelPower.Size = new System.Drawing.Size(0, 24);
             this.labelPower.TabIndex = 31;
             // 
             // timerPowerdownCooldown
@@ -436,19 +424,19 @@ namespace Car_Racing_Game
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(381, 318);
+            this.label4.Location = new System.Drawing.Point(381, 259);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 96);
+            this.label4.Size = new System.Drawing.Size(180, 136);
             this.label4.TabIndex = 32;
-            this.label4.Text = "Green Arrow:\r\n5 seconds - Coin Value 10.\r\nRed Arrow:\r\n5 seconds - Coin Value -10." +
-    "\r\nImmortal: \r\n10 seconds - Coin Value 10.\r\n";
+            this.label4.Text = "Green Arrow:\r\n5 seconds - Coin Value 10.\r\n\r\nRed Arrow:\r\n5 seconds - Coin Value -1" +
+    "0.\r\n\r\nImmortal: \r\n10 seconds - Coin Value 10.\r\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(382, 295);
+            this.label5.Location = new System.Drawing.Point(381, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(175, 23);
             this.label5.TabIndex = 33;
@@ -471,7 +459,6 @@ namespace Car_Racing_Game
             this.Controls.Add(this.GameSpeedLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelSamledeCoins);
             this.Controls.Add(this.pictureBoxCoin3);
             this.Controls.Add(this.pictureBoxCoin2);
             this.Controls.Add(this.label1);
@@ -550,7 +537,6 @@ namespace Car_Racing_Game
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBoxCoin2;
         private System.Windows.Forms.PictureBox pictureBoxCoin3;
-        private System.Windows.Forms.Label labelSamledeCoins;
         private System.Windows.Forms.Timer MoveTimer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

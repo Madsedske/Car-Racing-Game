@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2BD43566CC00423394346E557DBBE95B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4396479C9BACB1EFF23A23982B7E1989"
         "OwnerKey" = "8:_BA1404908AA74483B08F073ECA210445"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,13 +57,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D3EA400CA9D4444AA6BB035AFF3F9EE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_930A0360F62B4A839E289976D4F768A1"
+        "MsmKey" = "8:_9364077CE4C5499C8317FA9D1677ADB2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -247,6 +247,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2BD43566CC00423394346E557DBBE95B"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Mappe til alt muligt programmering\\AccessDatabaseEngine.exe"
+            "TargetName" = "8:AccessDatabaseEngine.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_0CC587FDCC404EDE90C23D99B936D36D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4396479C9BACB1EFF23A23982B7E1989"
             {
             "AssemblyRegister" = "3:1"
@@ -360,30 +380,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D3EA400CA9D4444AA6BB035AFF3F9EE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9364077CE4C5499C8317FA9D1677ADB2"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\LeaderboardDS.xlsx"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\Mappe til alt muligt programmering\\LeaderboardDS.xlsx"
             "TargetName" = "8:LeaderboardDS.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_0CC587FDCC404EDE90C23D99B936D36D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:TRUE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_930A0360F62B4A839E289976D4F768A1"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\AccessDatabaseEngine.exe"
-            "TargetName" = "8:AccessDatabaseEngine.exe"
             "Tag" = "8:"
             "Folder" = "8:_0CC587FDCC404EDE90C23D99B936D36D"
             "Condition" = "8:"
@@ -530,7 +530,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Car Racing Game"
         "ProductCode" = "8:{AFE55617-59EA-4FFE-B8EB-FD26FB5135DF}"
-        "PackageCode" = "8:{69BEF7DC-39C8-4413-A2A0-0E6629E9A332}"
+        "PackageCode" = "8:{FA3C97AF-D288-4D4E-BBF2-307B698C61AE}"
         "UpgradeCode" = "8:{7A6A5EF7-A029-41C6-BF3F-5B10763C5D40}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1079,7 +1079,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BA1404908AA74483B08F073ECA210445"
             {
-            "SourcePath" = "8:..\\Car Racing Game\\obj\\Release\\Car Racing Game.exe"
+            "SourcePath" = "8:..\\Car Racing Game\\obj\\Debug\\Car Racing Game.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0CC587FDCC404EDE90C23D99B936D36D"

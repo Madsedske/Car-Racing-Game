@@ -47,7 +47,6 @@ namespace Car_Racing_Game
         {
             InitializeComponent();
             LabelGameOver.Visible = false;
-            labelSamledeCoins.Visible = false;
             GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
         }
 
@@ -63,6 +62,7 @@ namespace Car_Racing_Game
             CoinPowerup();
             CoinPowerdown();
             Immortal();
+            DifficultyForTheGame();
         }
 
         void hvideStriber(int speed)
@@ -147,14 +147,14 @@ namespace Car_Racing_Game
                 }
                 else
                 {
+                    moveLeft = false;
+                    moveRight = false;
                     TilføjScore.CloseScore = false;
                     CheckScoreTimer.Enabled = true;
                     MoveTimer.Enabled = false;
                     timer1.Enabled = false;
                     LabelGameOver.Visible = true;
-                    labelBegin.Visible = true;
-                    labelSamledeCoins.Visible = true;
-                    labelSamledeCoins.Text = "Du scorede " + coinsCollected + " mønter";
+                    labelBegin.Visible = true;                    
                     navnTilScore.Show();
                 }           
             }
@@ -226,6 +226,43 @@ namespace Car_Racing_Game
             else pictureBoxCoin3.Top += speed;
         }
 
+        public void DifficultyForTheGame()
+        {
+            if (coinsCollected < 100)
+            {
+                gamespeed = 3;
+                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+            }
+            else if (coinsCollected > 100 && coinsCollected < 500)
+            {
+                gamespeed = 6;
+                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+            }
+            else if (coinsCollected > 500)
+            {
+                gamespeed = 9;
+                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+            }        
+
+            if (timerPowerdownCooldown.Enabled == true)
+            {
+                gamespeed = 7;
+                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+            }
+
+            if (timerPowerupCooldown.Enabled == true)
+            {
+                gamespeed = 5;
+                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+            }
+
+            if (timerInmortalCooldown.Enabled == true)
+            {
+                gamespeed = 5;
+                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+            }
+        }
+
         public void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             // Controls to begin a game.
@@ -276,51 +313,6 @@ namespace Car_Racing_Game
 
             if (e.KeyCode == Keys.Right)
                 moveRight = true;
-            
-            // The next two controls the gamespeed. How fast the cars drive.
-            if (e.KeyCode == Keys.Up)
-            {
-                if (gamespeed < 9)
-                    gamespeed = gamespeed + 3;
-                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
-
-                if (timerPowerdownCooldown.Enabled == true)
-                {
-                    gamespeed = 7;
-                }
-
-                if (timerPowerupCooldown.Enabled == true)
-                {
-                    gamespeed = 5;
-                }
-
-                if (timerInmortalCooldown.Enabled == true)
-                {
-                    gamespeed = 10;
-                }
-            }
-
-            if (e.KeyCode == Keys.Down)
-            {
-                if (gamespeed > 3)
-                    gamespeed = gamespeed - 3;
-                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
-
-                if (timerPowerdownCooldown.Enabled == true)
-                {
-                    gamespeed = 7;
-                }
-
-                if (timerPowerupCooldown.Enabled == true)
-                {
-                    gamespeed = 5;
-                }
-
-                if (timerInmortalCooldown.Enabled == true)
-                {
-                    gamespeed = 10;
-                }
-            }
 
             // Controls for see the leaderboard.
             if (e.KeyCode == Keys.Enter)
@@ -341,6 +333,19 @@ namespace Car_Racing_Game
                 moveRight = false;
         }
 
+        private void MoveTimer_Tick(object sender, EventArgs e)
+        {
+            if (moveLeft == true && pictureBoxUserCar.Left > 0)
+                pictureBoxUserCar.Left -= carSpeed;
+
+            if (moveRight == true && pictureBoxUserCar.Left < 339)
+                pictureBoxUserCar.Left += carSpeed;
+        }
+
+
+
+
+        // De 2 forms check timer
         public void CheckScoreTimer_Tick(object sender, EventArgs e)
         {
             switch (TilføjScore.CloseScore)
@@ -356,15 +361,26 @@ namespace Car_Racing_Game
             }
         }
 
-        private void MoveTimer_Tick(object sender, EventArgs e)
+        private void CheckLeaderboardTimer_Tick(object sender, EventArgs e)
         {
-            if (moveLeft == true && pictureBoxUserCar.Left > 0)
-                pictureBoxUserCar.Left -= carSpeed;
-
-            if (moveRight == true && pictureBoxUserCar.Left < 339)
-                pictureBoxUserCar.Left += carSpeed;
+            switch (Leaderboard.CloseLeaderboard)
+            {
+                case true:
+                    leaderboard.Visible = false;
+                    break;
+                case false:
+                    leaderboard.Visible = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
+
+
+
+        
+        // Power spawn system
         public void TimerPowerup_Tick(object sender, EventArgs e)
         {
             int spawnPowerup = randomGenerator.Next(1, 10);
@@ -439,6 +455,10 @@ namespace Car_Racing_Game
             else pictureBoxInmortal.Top += speed;
         }
 
+
+
+
+        // De 3 power
         void CoinPowerup()
         {
             if (pictureBoxUserCar.Bounds.IntersectsWith(pictureBoxCoinPowerup.Bounds))
@@ -447,8 +467,6 @@ namespace Car_Racing_Game
                 {
                     powerupCooldown = 5;
                     labelPower.Text = "Seconds back " + powerupCooldown;
-                    gamespeed = 5;
-                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
                     timerPowerupCooldown.Enabled = true;
                     labelPower.Visible = true;
                     int CoinPowerUp = randomGenerator.Next(20, 335);
@@ -470,8 +488,6 @@ namespace Car_Racing_Game
                 {
                     powerdownCooldown = 5;
                     labelPower.Text = "Seconds back " + powerdownCooldown;
-                    gamespeed = 7;
-                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
                     timerPowerdownCooldown.Enabled = true;
                     labelPower.Visible = true;
                     int CoinPowerDown = randomGenerator.Next(20, 335);
@@ -493,8 +509,6 @@ namespace Car_Racing_Game
                 {
                     inmortalCooldown = 10;
                     labelPower.Text = "Seconds back " + inmortalCooldown;
-                    gamespeed = 5;
-                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
                     timerInmortalCooldown.Enabled = true;
                     labelPower.Visible = true;
                     int inmortal = randomGenerator.Next(20, 335);
@@ -508,6 +522,41 @@ namespace Car_Racing_Game
             }
         }
 
+
+
+        // De 3 power cooldown timer
+        private void timerPowerupCooldown_Tick(object sender, EventArgs e)
+        {
+            powerupCooldown--;
+            labelPower.Text = "Seconds back " + powerupCooldown;
+            if (powerupCooldown == 0)
+            {
+                labelPower.Visible = false;
+                timerPowerupCooldown.Enabled = false;
+                if (coinsCollected < 100)
+                {
+                    gamespeed = 3;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+                else if (coinsCollected > 100 && coinsCollected < 500)
+                {
+                    gamespeed = 6;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+                else if (coinsCollected > 500)
+                {
+                    gamespeed = 9;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+            }
+            else
+            {
+                pictureBoxCoinPowerdown.Visible = false;
+                pictureBoxCoinPowerup.Visible = false;
+                pictureBoxInmortal.Visible = false;
+            }
+        }
+
         private void timerPowerdownCooldown_Tick(object sender, EventArgs e)
         {
             powerdownCooldown--;
@@ -516,8 +565,21 @@ namespace Car_Racing_Game
             {
                 labelPower.Visible = false;
                 timerPowerdownCooldown.Enabled = false;
-                gamespeed = 3;
-                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                if (coinsCollected < 100)
+                {
+                    gamespeed = 3;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+                else if (coinsCollected > 100 && coinsCollected < 500)
+                {
+                    gamespeed = 6;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+                else if (coinsCollected > 500)
+                {
+                    gamespeed = 9;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
             }
             else
             {
@@ -535,8 +597,21 @@ namespace Car_Racing_Game
             {
                 labelPower.Visible = false;
                 timerInmortalCooldown.Enabled = false;
-                gamespeed = 3;
-                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                if (coinsCollected < 100)
+                {
+                    gamespeed = 3;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+                else if (coinsCollected > 100 && coinsCollected < 500)
+                {
+                    gamespeed = 6;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
+                else if (coinsCollected > 500)
+                {
+                    gamespeed = 9;
+                    GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
+                }
             }
             else
             {
@@ -546,48 +621,15 @@ namespace Car_Racing_Game
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-       
-        }
 
-        private void CheckLeaderboardTimer_Tick(object sender, EventArgs e)
-        {
-            switch (Leaderboard.CloseLeaderboard)
-            {
-                case true:
-                    leaderboard.Visible = false;
-                    break;
-                case false:
-                    leaderboard.Visible = true;
-                    break;
-                default:
-                    break;
-            }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {       
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void timerPowerupCooldown_Tick(object sender, EventArgs e)
-        {
-            powerupCooldown--;
-            labelPower.Text = "Seconds back " + powerupCooldown;
-            if (powerupCooldown == 0)
-            {
-                labelPower.Visible = false;
-                timerPowerupCooldown.Enabled = false;
-                gamespeed = 3;
-                GameSpeedLabel.Text = "Current gamespeed = " + gamespeed;
-            }
-            else
-            {
-                pictureBoxCoinPowerdown.Visible = false;
-                pictureBoxCoinPowerup.Visible = false;
-                pictureBoxInmortal.Visible = false;
-            }
-        }
+        }               
     }
 }
