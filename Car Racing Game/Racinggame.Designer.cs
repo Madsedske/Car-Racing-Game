@@ -59,6 +59,17 @@ namespace Car_Racing_Game
             this.GameSpeedLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CheckScoreTimer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxCoinPowerup = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCoinPowerdown = new System.Windows.Forms.PictureBox();
+            this.TimerPowerup = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxInmortal = new System.Windows.Forms.PictureBox();
+            this.timerPowerupCooldown = new System.Windows.Forms.Timer(this.components);
+            this.labelPower = new System.Windows.Forms.Label();
+            this.timerPowerdownCooldown = new System.Windows.Forms.Timer(this.components);
+            this.timerInmortalCooldown = new System.Windows.Forms.Timer(this.components);
+            this.CheckLeaderboardTimer = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSideLinje1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSidelinje2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMidtStribe4)).BeginInit();
@@ -76,6 +87,9 @@ namespace Car_Racing_Game
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoinPowerup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoinPowerdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmortal)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSideLinje1
@@ -306,9 +320,9 @@ namespace Car_Racing_Game
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(380, 367);
+            this.label2.Location = new System.Drawing.Point(381, 414);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 33);
+            this.label2.Size = new System.Drawing.Size(175, 23);
             this.label2.TabIndex = 21;
             this.label2.Text = "Controls:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -317,12 +331,12 @@ namespace Car_Racing_Game
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(382, 400);
+            this.label3.Location = new System.Drawing.Point(381, 437);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 114);
+            this.label3.Size = new System.Drawing.Size(173, 82);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Up arrow: Faster\r\n\r\nDown arrow: Slower\r\n\r\nRight arrow: Steer right\r\n\r\nLeft arrow:" +
-    " Steer left";
+            this.label3.Text = "Up arrow: Faster\r\nDown arrow: Slower\r\nRight arrow: Steer right\r\nLeft arrow: Steer" +
+    " left\r\nEnter: Leaderboard";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // GameSpeedLabel
@@ -331,7 +345,7 @@ namespace Car_Racing_Game
             this.GameSpeedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GameSpeedLabel.Location = new System.Drawing.Point(383, 137);
             this.GameSpeedLabel.Name = "GameSpeedLabel";
-            this.GameSpeedLabel.Size = new System.Drawing.Size(173, 63);
+            this.GameSpeedLabel.Size = new System.Drawing.Size(173, 51);
             this.GameSpeedLabel.TabIndex = 26;
             this.GameSpeedLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -339,23 +353,120 @@ namespace Car_Racing_Game
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(383, 200);
+            this.label7.Location = new System.Drawing.Point(383, 188);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 136);
+            this.label7.Size = new System.Drawing.Size(173, 100);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Gamespeed 3: \r\nEasy. Coin Value is 1.\r\n\r\nGamespeed 6: \r\nMedium. Coin Value is 2.\r" +
-    "\n\r\nGamespeed 9: \r\nHard. Coin Value is 3.\r\n";
+            this.label7.Text = "Gamespeed 3: \r\nEasy. Coin Value is 1.\r\nGamespeed 6: \r\nMedium. Coin Value is 2.\r\nG" +
+    "amespeed 9: \r\nHard. Coin Value is 3.\r\n";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // CheckScoreTimer
             // 
             this.CheckScoreTimer.Tick += new System.EventHandler(this.CheckScoreTimer_Tick);
             // 
+            // pictureBoxCoinPowerup
+            // 
+            this.pictureBoxCoinPowerup.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCoinPowerup.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCoinPowerup.Image")));
+            this.pictureBoxCoinPowerup.Location = new System.Drawing.Point(299, 245);
+            this.pictureBoxCoinPowerup.Name = "pictureBoxCoinPowerup";
+            this.pictureBoxCoinPowerup.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxCoinPowerup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCoinPowerup.TabIndex = 28;
+            this.pictureBoxCoinPowerup.TabStop = false;
+            // 
+            // pictureBoxCoinPowerdown
+            // 
+            this.pictureBoxCoinPowerdown.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCoinPowerdown.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCoinPowerdown.Image")));
+            this.pictureBoxCoinPowerdown.Location = new System.Drawing.Point(263, 245);
+            this.pictureBoxCoinPowerdown.Name = "pictureBoxCoinPowerdown";
+            this.pictureBoxCoinPowerdown.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxCoinPowerdown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCoinPowerdown.TabIndex = 29;
+            this.pictureBoxCoinPowerdown.TabStop = false;
+            // 
+            // TimerPowerup
+            // 
+            this.TimerPowerup.Enabled = true;
+            this.TimerPowerup.Interval = 3000;
+            this.TimerPowerup.Tick += new System.EventHandler(this.TimerPowerup_Tick);
+            // 
+            // pictureBoxInmortal
+            // 
+            this.pictureBoxInmortal.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxInmortal.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInmortal.Image")));
+            this.pictureBoxInmortal.Location = new System.Drawing.Point(227, 245);
+            this.pictureBoxInmortal.Name = "pictureBoxInmortal";
+            this.pictureBoxInmortal.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxInmortal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxInmortal.TabIndex = 30;
+            this.pictureBoxInmortal.TabStop = false;
+            // 
+            // timerPowerupCooldown
+            // 
+            this.timerPowerupCooldown.Interval = 1000;
+            this.timerPowerupCooldown.Tick += new System.EventHandler(this.timerPowerupCooldown_Tick);
+            // 
+            // labelPower
+            // 
+            this.labelPower.AutoSize = true;
+            this.labelPower.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPower.Location = new System.Drawing.Point(204, 532);
+            this.labelPower.Name = "labelPower";
+            this.labelPower.Size = new System.Drawing.Size(0, 20);
+            this.labelPower.TabIndex = 31;
+            // 
+            // timerPowerdownCooldown
+            // 
+            this.timerPowerdownCooldown.Interval = 1000;
+            this.timerPowerdownCooldown.Tick += new System.EventHandler(this.timerPowerdownCooldown_Tick);
+            // 
+            // timerInmortalCooldown
+            // 
+            this.timerInmortalCooldown.Interval = 1000;
+            this.timerInmortalCooldown.Tick += new System.EventHandler(this.timerInmortalCooldown_Tick);
+            // 
+            // CheckLeaderboardTimer
+            // 
+            this.CheckLeaderboardTimer.Tick += new System.EventHandler(this.CheckLeaderboardTimer_Tick);
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(381, 318);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(185, 96);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Green Arrow:\r\n5 seconds - Coin Value 10.\r\nRed Arrow:\r\n5 seconds - Coin Value -10." +
+    "\r\nImmortal: \r\n10 seconds - Coin Value 10.\r\n";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(382, 295);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(175, 23);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Powers:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(562, 561);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelPower);
+            this.Controls.Add(this.pictureBoxInmortal);
+            this.Controls.Add(this.pictureBoxCoinPowerdown);
+            this.Controls.Add(this.pictureBoxCoinPowerup);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.GameSpeedLabel);
             this.Controls.Add(this.label3);
@@ -381,12 +492,14 @@ namespace Car_Racing_Game
             this.Controls.Add(this.pictureBoxMidtStribe4);
             this.Controls.Add(this.pictureBoxSidelinje2);
             this.Controls.Add(this.pictureBoxSideLinje1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(578, 600);
             this.MinimumSize = new System.Drawing.Size(578, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Racing Game";
             this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSideLinje1)).EndInit();
@@ -406,7 +519,11 @@ namespace Car_Racing_Game
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoin3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoinPowerup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoinPowerdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmortal)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -440,6 +557,17 @@ namespace Car_Racing_Game
         private System.Windows.Forms.Label GameSpeedLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer CheckScoreTimer;
+        private System.Windows.Forms.PictureBox pictureBoxCoinPowerup;
+        private System.Windows.Forms.PictureBox pictureBoxCoinPowerdown;
+        private System.Windows.Forms.Timer TimerPowerup;
+        private System.Windows.Forms.PictureBox pictureBoxInmortal;
+        private System.Windows.Forms.Timer timerPowerupCooldown;
+        private System.Windows.Forms.Label labelPower;
+        private System.Windows.Forms.Timer timerPowerdownCooldown;
+        private System.Windows.Forms.Timer timerInmortalCooldown;
+        private System.Windows.Forms.Timer CheckLeaderboardTimer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
